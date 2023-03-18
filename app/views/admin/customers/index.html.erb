@@ -1,2 +1,32 @@
-<h1>Admin::Customers#index</h1>
-<p>Find me in app/views/admin/customers/index.html.erb</p>
+<div class="container">
+  <div class="row">
+    <h4>All Customers</h4>
+      <table>
+        <thead>
+          <tr>
+            <th>Customer ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        
+        <tbody>
+          <% @customer.each do |customer| %>
+            <tr>
+              <td><%= customer.id %></td>
+              <td><%= link_to customer.full_name, admin_customer_path(customer) %></td>
+              <td><%= customer.email %></td>
+              <td>
+                <% if customer.is_deleted %>
+                  <strong class="text-secondary">Invalid</strong>
+                <% else %>
+                  <strong class="text-success">Valid</strong>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+  </div>
+</div>
