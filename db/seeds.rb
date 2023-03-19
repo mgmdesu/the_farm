@@ -8,7 +8,7 @@
 
   #管理者ログイン
   admin = [
-    {email: 'admin@example.com', passeord: 'admin!'}
+    {email: 'admin@example.com', password: 'admin!'}
   ]
   
   admin.each do |admin|
